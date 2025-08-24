@@ -26,8 +26,7 @@ class LoginController extends Controller
         $request->session()->regenerate();
 
         $user = Auth::user();
-// dd($user);
-// dd($user->role);
+
         // Redirect based on role
         if ($user->role == 1) {
             // Admin → main dashboard   
@@ -35,13 +34,8 @@ class LoginController extends Controller
         }
         
          elseif ($user->role == 2) {
-            // dd('role 2');
-            // Normal user → user dashboard
             return redirect()->intended('/user/dashboard');
         }
-
-        // Default fallback (if role not defined)
-        // return redirect()->intended('/dashboard');
     }
 
     return back()->withErrors([

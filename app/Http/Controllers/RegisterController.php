@@ -10,19 +10,12 @@ use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
-    /**
-     * Show the registration form.
-     * Route::get('/register', [RegisterController::class, 'create'])->name('register');
-     */
+
     public function create()
     {
-        return view('register');  // resources/views/register.blade.php
+        return view('register');  
     }
 
-    /**
-     * Handle the registration form submission.
-     * Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
-     */
     public function store(Request $request)
     {
         // 🔒 1. Validate input
